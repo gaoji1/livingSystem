@@ -3,7 +3,7 @@
         "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
         "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 
-<hibernate-mapping package="bean.playback">
+<hibernate-mapping package="com.bjut.s14024205.entity">
     <class name="PlayBack">
         <id name="id" type="int" column="id">
             <generator class="native"/>

@@ -4,11 +4,11 @@
         "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 
 <hibernate-mapping package="com.bjut.s14024205.entity">
-    <class name="User" >
-        <id name="id" type="int" >
+    <class name="Attention">
+        <id name="id" type="int" column="id">
             <generator class="native"/>
         </id>
-        <property name="uName" type="string"  />
-        <property name="passWorld" type="string"  />
+        <property name="uName" type="string" />
+        <property name="Producer" type="string" />
     </class>
 </hibernate-mapping>
