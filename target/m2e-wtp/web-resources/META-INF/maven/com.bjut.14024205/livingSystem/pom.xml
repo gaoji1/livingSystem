@@ -1,0 +1,308 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.bjut.14024205</groupId>
+	<artifactId>livingSystem</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>war</packaging>
+
+
+
+
+	<!-- 归类依赖 -->
+
+	<properties>
+
+		<struts.version>2.3.33</struts.version>
+
+		<spring.version>4.3.7.RELEASE</spring.version>
+
+		<hibernate.version>5.0.12.Final</hibernate.version>
+
+	</properties>
+
+
+
+
+
+	<dependencies>
+
+
+
+		<!-- +++++++ (1) Struts2 相关 +++++++ -->
+
+
+
+		<!-- Struts2 相关的基本依赖 -->
+
+		<dependency>
+
+			<groupId>org.apache.struts</groupId>
+
+			<artifactId>struts2-core</artifactId>
+
+			<version>${struts.version}</version>
+
+			<!-- 由于 Struts2 和 Hibernate 中都有 javassist， 为避免冲突，留下高版本，排除低版本即可 这里，Struts2 
+				中的 javassist 版本更低 -->
+
+			<exclusions>
+
+				<exclusion>
+
+					<groupId>javassist</groupId>
+
+					<artifactId>javassist</artifactId>
+
+				</exclusion>
+
+			</exclusions>
+
+		</dependency>
+
+
+
+
+
+		<!-- +++++++ (2) Spring 相关 +++++++ -->
+
+
+
+		<!-- Spring 相关的基本依赖 -->
+
+		<dependency>
+
+			<groupId>org.springframework</groupId>
+
+			<artifactId>spring-context</artifactId>
+
+			<version>${spring.version}</version>
+
+		</dependency>
+
+
+
+		<!-- Spring AOP 相关的依赖 -->
+
+		<dependency>
+
+			<groupId>org.springframework</groupId>
+
+			<artifactId>spring-aspects</artifactId>
+
+			<version>${spring.version}</version>
+
+		</dependency>
+
+
+
+		<!-- Spring 单元测试相关的依赖 -->
+
+		<dependency>
+
+			<groupId>org.springframework</groupId>
+
+			<artifactId>spring-test</artifactId>
+
+			<version>${spring.version}</version>
+
+		</dependency>
+
+
+
+
+
+		<!-- +++++++ (3) Hibernate 相关 +++++++ -->
+
+
+
+		<!-- Hibernate 相关的基本依赖 -->
+
+		<dependency>
+
+			<groupId>org.hibernate</groupId>
+
+			<artifactId>hibernate-core</artifactId>
+
+			<version>${hibernate.version}</version>
+
+		</dependency>
+
+
+
+
+
+		<!-- +++++++ (4) SSH 整合相关 +++++++ -->
+
+
+
+		<!-- Struts2 整合 Spring 相关的依赖 -->
+
+		<dependency>
+
+			<groupId>org.apache.struts</groupId>
+
+			<artifactId>struts2-spring-plugin</artifactId>
+
+			<version>${struts.version}</version>
+
+		</dependency>
+
+
+
+		<!-- Spring 整合 Web 项目相关的依赖 -->
+
+		<dependency>
+
+			<groupId>org.springframework</groupId>
+
+			<artifactId>spring-web</artifactId>
+
+			<version>${spring.version}</version>
+
+		</dependency>
+
+
+
+		<!-- Spring 整合 Hibernate 相关的依赖 -->
+
+		<dependency>
+
+			<groupId>org.springframework</groupId>
+
+			<artifactId>spring-orm</artifactId>
+
+			<version>${spring.version}</version>
+
+		</dependency>
+
+
+
+
+
+		<!-- +++++++ (5) 数据库连接相关 +++++++ -->
+
+
+
+		<!-- JDBC 驱动相关的依赖 -->
+
+		<dependency>
+
+			<groupId>mysql</groupId>
+
+			<artifactId>mysql-connector-java</artifactId>
+
+			<version>5.1.43</version>
+
+			<scope>runtime</scope>
+
+		</dependency>
+
+
+
+		<!-- C3P0 连接池相关的依赖 -->
+
+		<dependency>
+
+			<groupId>c3p0</groupId>
+
+			<artifactId>c3p0</artifactId>
+
+			<version>0.9.1.2</version>
+
+		</dependency>
+
+
+
+
+
+		<!-- +++++++ (6) 日志相关 +++++++ -->
+
+
+
+		<!-- 日志相关的依赖 -->
+
+		<dependency>
+
+			<groupId>org.slf4j</groupId>
+
+			<artifactId>slf4j-log4j12</artifactId>
+
+			<version>1.7.25</version>
+
+		</dependency>
+
+
+
+
+
+		<!-- +++++++ (7) 其它相关 +++++++ -->
+
+
+
+		<!-- JUnit 相关的依赖 -->
+
+		<dependency>
+
+			<groupId>junit</groupId>
+
+			<artifactId>junit</artifactId>
+
+			<version>4.12</version>
+
+			<scope>test</scope>
+
+		</dependency>
+
+
+
+		<!-- JSTL 相关的依赖 -->
+
+		<dependency>
+
+			<groupId>javax.servlet</groupId>
+
+			<artifactId>jstl</artifactId>
+
+			<version>1.2</version>
+
+		</dependency>
+
+
+
+		<!-- servlet-api 相关的依赖 -->
+
+		<dependency>
+
+			<groupId>javax.servlet</groupId>
+
+			<artifactId>servlet-api</artifactId>
+
+			<version>2.5</version>
+
+			<scope>provided</scope>
+
+		</dependency>
+
+
+
+		<!-- jsp-api 相关的依赖 -->
+
+		<dependency>
+
+			<groupId>javax.servlet</groupId>
+
+			<artifactId>jsp-api</artifactId>
+
+			<version>2.0</version>
+
+			<scope>provided</scope>
+
+		</dependency>
+
+
+
+	</dependencies>
+
+
+</project>

@@ -1,0 +1,9 @@
+从页面发送请求给action
+action调用service
+service调用dao(daoimpl)
+操作实体类简介操作数据库
+
+
+action中注入service
+service中注入dao
+dao中注入实体类
