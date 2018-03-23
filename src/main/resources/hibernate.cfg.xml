@@ -16,7 +16,6 @@
         <!-- 显示生成的SQL语句 -->
         <property name="hibernate.show_sql">true</property>
         <property name="hbm2ddl.auto">update</property>  
-        <property name="hibernate.current_session_context_class">thread</property>
         
          <!-- 3. 导入映射文件，交給spring -->
         

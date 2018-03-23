@@ -9,6 +9,6 @@
             <generator class="native"/>
         </id>
         <property name="uName" type="string"  />
-        <property name="passWorld" type="string"  />
+        <property name="passWord" type="string" column="passWord" />
     </class>
 </hibernate-mapping>

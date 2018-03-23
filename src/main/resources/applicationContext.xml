@@ -36,7 +36,7 @@
 	</bean>
 
 	<bean id="sessionFactory"
-		class="org.springframework.orm.hibernate4.LocalSessionFactoryBean"
+		class="org.springframework.orm.hibernate5.LocalSessionFactoryBean"
 		lazy-init="false">
 		<!-- 注入datasource，给sessionfactoryBean内setdatasource提供数据源 -->
 		<property name="dataSource" ref="dataSource" />
@@ -45,7 +45,38 @@
 		<property name="mappingLocations"
 			value="classpath:com/bjut/s14024205/entity/*.hbm.xml"></property>
 	</bean>
-	<!-- -->
+	<!-- ######################## -->
 
+<!-- 配置spring事务管理 -->
+	<bean id="HibernateTransactionManager" class="org.springframework.orm.hibernate5.HibernateTransactionManager" >
+		<property name="sessionFactory" ref="sessionFactory" ></property>
+	</bean>
+	<tx:annotation-driven transaction-manager="HibernateTransactionManager" />
+	<!-- #####################  -->
+	
+	<!-- 数据库DaoImpl -->
+	<!-- attention暂时不用，先不注册 -->
+	
+	<bean id="UserDaoImpl" class="com.bjut.s14024205.dao.impl.UserDaoImpl" >
+		<property name="hibernateTemplate" ref="HibernateTemplate" ></property>
+	</bean>
+	<bean id="PlaybackDaoImpl" class="com.bjut.s14024205.dao.impl.PlaybackDaoImpl" ></bean>
+	<bean id="LiveDaoImpl" class="com.bjut.s14024205.dao.impl.LiveDaoImpl" >
+		<property name="hibernateTemplate" ref="HibernateTemplate" ></property>
+	</bean>
+	<bean id="HibernateTemplate" class="org.springframework.orm.hibernate5.HibernateTemplate" >
+		<property name="sessionFactory" ref="sessionFactory" ></property> 
+	</bean>
+	<!-- ##############################  -->
+	
+	<!-- action注册 -->
+	<bean id="LogIn" class="com.bjut.s14024205.action.LogIn" scope="prototype" >
+		<property name="u" ref="UserDaoImpl" ></property>
+	</bean>
+	
+	
+	
+
+	
 
 </beans>  

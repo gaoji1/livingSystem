@@ -3,30 +3,32 @@ package com.bjut.s14024205.entity;
 public class User {
 	int id;
 	String uName;
-	String passWorld;
-
+	String passWord;
 	public int getId() {
 		return id;
 	}
-
 	public void setId(int id) {
 		this.id = id;
 	}
-
 	public String getuName() {
 		return uName;
 	}
-
 	public void setuName(String uName) {
 		this.uName = uName;
 	}
-
-	public String getPassWorld() {
-		return passWorld;
+	public String getPassWord() {
+		return passWord;
+	}
+	public void setPassWord(String passWord) {
+		this.passWord = passWord;
 	}
 
-	public void setPassWorld(String passWorld) {
-		this.passWorld = passWorld;
-	}
+	
 
+	
+
+	
+
+	
+	
 }
