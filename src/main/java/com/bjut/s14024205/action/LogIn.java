@@ -4,6 +4,7 @@ import com.bjut.s14024205.dao.impl.UserDaoImpl;
 import com.bjut.s14024205.entity.User;
 import com.opensymphony.xwork2.ActionSupport;
 
+//LogIn action ÒÑ¾­×¢²á
 public class LogIn extends ActionSupport {
 
 	/**

@@ -9,9 +9,8 @@
     <constant name="struts.devMode" value="true" />
 
     <package name="default" namespace="/" extends="struts-default">
-
-        <action name="LogIn_*" class="LogIn" method="{1}" >
-        </action>
+        <action name="LogIn_*" class="LogIn" method="{1}" ></action>
+        <action name="LiveAction_*" class="LiveAction" method="{1}" ></action>
     </package>
 
 

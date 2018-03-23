@@ -73,7 +73,9 @@
 	<bean id="LogIn" class="com.bjut.s14024205.action.LogIn" scope="prototype" >
 		<property name="u" ref="UserDaoImpl" ></property>
 	</bean>
-	
+	<bean id="LiveAction" class="com.bjut.s14024205.action.LiveAction" scope="prototype" >
+		<property name="l" ref="LiveDaoImpl" ></property>
+	</bean>
 	
 	
 
