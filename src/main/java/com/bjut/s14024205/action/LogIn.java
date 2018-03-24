@@ -1,5 +1,11 @@
 package com.bjut.s14024205.action;
 
+import java.io.IOException;
+
+import javax.servlet.http.HttpServletResponse;
+
+import org.apache.struts2.ServletActionContext;
+
 import com.bjut.s14024205.dao.impl.UserDaoImpl;
 import com.bjut.s14024205.entity.User;
 import com.opensymphony.xwork2.ActionSupport;
@@ -13,6 +19,10 @@ public class LogIn extends ActionSupport {
 	private static final long serialVersionUID = 1L;
 	// dao
 	private UserDaoImpl u;
+	//用户名
+	private String uName;
+	//用户密码
+	private String passWord;
 
 	public UserDaoImpl getU() {
 		return u;
@@ -21,14 +31,30 @@ public class LogIn extends ActionSupport {
 	public void setU(UserDaoImpl u) {
 		this.u = u;
 	}
+	
+
+	public String getuName() {
+		return uName;
+	}
+
+	public void setuName(String uName) {
+		this.uName = uName;
+	}
+
+	public String getPassWord() {
+		return passWord;
+	}
+
+	public void setPassWord(String passWord) {
+		this.passWord = passWord;
+	}
 
 	// 验证用户(测试)
-	public void verify() {
-
-		User result = u.find("小明");
-		if (result.getuName() != "小明") {
-			System.out.println("成功調用dao");
-		}
+	public void verify() throws IOException {
+		System.out.println(this.uName);
+		System.out.println(this.passWord);
+		HttpServletResponse resp = ServletActionContext.getResponse();
+		resp.getWriter().print("SUCCESS");
 	}
 
 	// 删除用户(测试)
