@@ -1,5 +1,6 @@
 package com.bjut.s14024205.dao.impl;
 
+import java.util.Date;
 import java.util.List;
 
 import org.hibernate.criterion.DetachedCriteria;
@@ -27,6 +28,17 @@ public class PlaybackDaoImpl implements PlayBackDao {
 	public List<PlayBack> findByName(String uName){
 		DetachedCriteria PlaybackCriteria =DetachedCriteria.forClass(PlayBack.class);
 		PlaybackCriteria.add(Restrictions.eq("uName", uName));
+		List<PlayBack> result = (List<PlayBack>) hibernateTemplete.findByCriteria(PlaybackCriteria);
+		if(result.size() == 0) {
+			return null;
+		}else {
+			return result;
+		}
+	}
+//	根据日期查询
+	public List<PlayBack> findByDate(Date liveDate) {
+		DetachedCriteria PlaybackCriteria =DetachedCriteria.forClass(PlayBack.class);
+		PlaybackCriteria.add(Restrictions.eq("liveTime", liveDate));
 		List<PlayBack> result = (List<PlayBack>) hibernateTemplete.findByCriteria(PlaybackCriteria);
 		if(result.size() == 0) {
 			return null;
