@@ -34,6 +34,17 @@ public class LiveDaoImpl implements LiveDao {
 			return result.get(0);
 		}
 	}
+//	查找直播信息(根据用户名)
+	public Live findByName(String uName) {
+		DetachedCriteria liveCriteria = DetachedCriteria.forClass(Live.class);
+		liveCriteria.add(Restrictions.eq("uName", uName));
+		List<Live> result = (List<Live>) hibernateTemplate.findByCriteria(liveCriteria);
+		if (result.size() == 0) {
+			return null;
+		} else {
+			return result.get(0);
+		}
+	}
 
 	// 添加直播流信息
 	// 对应信息已经被添加：true 对应信息不存在：true 对应信息已经存在（uName不相同）:false
@@ -55,18 +66,45 @@ public class LiveDaoImpl implements LiveDao {
 		}
 
 	}
-//	删除直播信息
-//	true:删除成功    false:没有对应的信息
-	public boolean delete(String uName,String streamName) {
-		Live result =  this.findByStreamName(streamName);
-		if(result == null) {
+
+	// 删除直播信息
+	// true:删除成功 false:没有对应的信息
+	public boolean delete(String uName, String streamName) {
+		Live result = this.findByStreamName(streamName);
+		if (result == null) {
 			return false;
-		}else {
-			if(uName.equals(result.getuName())) {
+		} else {
+			if (uName.equals(result.getuName())) {
 				hibernateTemplate.delete(result);
 				return true;
-			}else {
+			} else {
 				return false;
+			}
+		}
+	}
+
+	// 更改直播信息
+	// 1:更改成功
+	// -1：对应直播信息错误
+	// -2：新的流名称已经被占用
+	public int update(String uName, String oldStream, String newStream) {
+		Live oldLive = this.findByStreamName(oldStream);
+		if(oldLive == null) {
+			return -1;
+		}else {
+			if(uName.equals(oldLive.getuName())) {
+				Live repeater = this.findByStreamName(newStream);
+				if(repeater == null) {
+					Live newLive = oldLive;
+					newLive.setStreamName(newStream);
+					hibernateTemplate.update(newLive);
+					return 1;
+				}else {
+					return -2;
+				}
+				
+			}else {
+				return -1;
 			}
 		}
 	}
