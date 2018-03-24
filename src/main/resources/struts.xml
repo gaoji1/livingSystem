@@ -11,6 +11,7 @@
     <package name="default" namespace="/" extends="struts-default">
         <action name="LogIn_*" class="LogIn" method="{1}" ></action>
         <action name="LiveAction_*" class="LiveAction" method="{1}" ></action>
+        <action name="PlaybackAction_*" class="PlaybackAction" method="{1}" ></action>
     </package>
 
 

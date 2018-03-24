@@ -1,7 +1,38 @@
 package com.bjut.s14024205.dao.impl;
 
-import com.bjut.s14024205.dao.PlayBackDao;
+import java.util.List;
 
+import org.hibernate.criterion.DetachedCriteria;
+import org.hibernate.criterion.Restrictions;
+import org.springframework.orm.hibernate5.HibernateTemplate;
+import org.springframework.transaction.annotation.Transactional;
+
+import com.bjut.s14024205.dao.PlayBackDao;
+import com.bjut.s14024205.entity.PlayBack;
+
+@Transactional
 public class PlaybackDaoImpl implements PlayBackDao {
+//	注入hibernate模板
+	private HibernateTemplate hibernateTemplete;
+
+	public HibernateTemplate getHibernateTemplete() {
+		return hibernateTemplete;
+	}
+
+	public void setHibernateTemplete(HibernateTemplate hibernateTemplete) {
+		this.hibernateTemplete = hibernateTemplete;
+	}
+	
+// 根据用户名查找
+	public List<PlayBack> findByName(String uName){
+		DetachedCriteria PlaybackCriteria =DetachedCriteria.forClass(PlayBack.class);
+		PlaybackCriteria.add(Restrictions.eq("uName", uName));
+		List<PlayBack> result = (List<PlayBack>) hibernateTemplete.findByCriteria(PlaybackCriteria);
+		if(result.size() == 0) {
+			return null;
+		}else {
+			return result;
+		}
+	}
 	
 }

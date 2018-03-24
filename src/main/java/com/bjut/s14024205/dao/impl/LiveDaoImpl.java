@@ -13,7 +13,7 @@ import com.bjut.s14024205.entity.Live;
 @Transactional
 public class LiveDaoImpl implements LiveDao {
 	// hibernateÄ£°å
-	HibernateTemplate hibernateTemplate;
+	private HibernateTemplate hibernateTemplate;
 
 	public HibernateTemplate getHibernateTemplate() {
 		return hibernateTemplate;

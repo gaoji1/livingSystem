@@ -40,4 +40,11 @@ public class PlayBack {
 	public void setFileName(String fileName) {
 		this.fileName = fileName;
 	}
+
+	@Override
+	public String toString() {
+		return "PlayBack [uName=" + uName + ", liveTime=" + liveTime + ", fileName=" + fileName + "]";
+	}
+	
+	
 }

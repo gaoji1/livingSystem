@@ -60,7 +60,9 @@
 	<bean id="UserDaoImpl" class="com.bjut.s14024205.dao.impl.UserDaoImpl" >
 		<property name="hibernateTemplate" ref="HibernateTemplate" ></property>
 	</bean>
-	<bean id="PlaybackDaoImpl" class="com.bjut.s14024205.dao.impl.PlaybackDaoImpl" ></bean>
+	<bean id="PlaybackDaoImpl" class="com.bjut.s14024205.dao.impl.PlaybackDaoImpl" >
+		<property name="hibernateTemplete" ref="HibernateTemplate" ></property>
+	</bean>
 	<bean id="LiveDaoImpl" class="com.bjut.s14024205.dao.impl.LiveDaoImpl" >
 		<property name="hibernateTemplate" ref="HibernateTemplate" ></property>
 	</bean>
@@ -75,6 +77,9 @@
 	</bean>
 	<bean id="LiveAction" class="com.bjut.s14024205.action.LiveAction" scope="prototype" >
 		<property name="l" ref="LiveDaoImpl" ></property>
+	</bean>
+	<bean id="PlaybackAction" class="com.bjut.s14024205.action.PlaybackAction" >
+		<property name="p" ref="PlaybackDaoImpl" ></property>
 	</bean>
 	
 	
