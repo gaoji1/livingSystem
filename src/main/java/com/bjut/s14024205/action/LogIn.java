@@ -50,7 +50,7 @@ public class LogIn extends ActionSupport {
 		this.passWord = passWord;
 	}
 
-	// 验证用户(测试)
+	// 验证用户
 	/**
 	 * 接收用户提交的用户名以及密码， 首先查看当前用户名是否存在 若不存在该用户则返回"username does not exist"
 	 * 若存在，进一步判断密码是否相同 若相同则返回"success"并设置cookies和向session中写入当前登陆的用户名及密码
@@ -77,7 +77,7 @@ public class LogIn extends ActionSupport {
 
 		
 	}
-
+//	*-----------------------------------------*//
 	// 删除用户(测试)
 	public void delUser() {
 		boolean result = u.delete("小明");
