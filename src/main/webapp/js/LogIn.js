@@ -30,8 +30,12 @@ var logIn = function(){
 			{uName : inputName,
 			passWord : inputPsword},
 			function(data){
-				if(data == "SUCCESS"){
-					alert(1);
+				if(data == "success"){
+					$(location).attr('href', '/livingSystem/index.html');
+				}else if(data == "wrong password"){
+					alert(data);
+				}else if(data == "username does not exist"){
+					alert(data);
 				}
 			})
 }

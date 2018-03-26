@@ -35,8 +35,7 @@ public class UserDaoImpl implements UserDao {
 		
 		List<User> result =  (List<User>) hibernateTemplate.findByCriteria(UserCritera);
 		if (result.size() == 0) {
-			User empty = new User();
-			return empty;
+			return null;
 		}
 		else {
 			return (User)result.get(0);
