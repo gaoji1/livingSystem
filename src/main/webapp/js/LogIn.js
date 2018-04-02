@@ -40,6 +40,19 @@ var logIn = function(){
 			})
 }
 $("#button").on("click",logIn);
+$(function(){
+	var url = "/livingSystem/LogIn_judge";
+	$.get(url,function(data){
+		if(data == "no existing account"){
+			return;
+		}else if(data == "user has logged in"){
+			alert("please do not log in again!");
+			$(location).attr('href', '/livingSystem/index.html');
+		}else{
+			alert(data);
+		}
+	});
+})
 //以下为测试js能否导入
 //$(function(){
 //	alert("11");

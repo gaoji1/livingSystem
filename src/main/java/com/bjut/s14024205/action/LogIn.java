@@ -61,12 +61,13 @@ public class LogIn extends ActionSupport {
 	public void verify() throws IOException {
 		HttpServletResponse resp = ServletActionContext.getResponse();
 		HttpServletRequest req = ServletActionContext.getRequest();
+		HttpSession session = req.getSession();
 		User result = u.find(this.uName);
 		if (result == null) {
 			resp.getWriter().print("username does not exist");
 		}else {
 			if(result.getPassWord().equals(this.passWord)) {
-				HttpSession session = req.getSession();
+				
 				session.setAttribute("uName", this.uName);
 				session.setAttribute("passWord", this.passWord);
 				resp.getWriter().print("success");
@@ -75,9 +76,30 @@ public class LogIn extends ActionSupport {
 			}
 		}
 
-		
 	}
 //	*-----------------------------------------*//
+	/**
+	 * 在进入login页面时候做一次判断，session中是否已经有了正在使用的用户信息
+	 * 如果有，那么说明用户已经登陆，并且并未主动注销，此时引导用户回到index页面
+	 * 如果没有，那么这是一个新用户，引导用户登陆
+	 * @throws IOException 
+	 * 
+	 */
+	public void judge() throws IOException {
+		HttpServletRequest req = ServletActionContext.getRequest();
+		HttpServletResponse resp = ServletActionContext.getResponse();
+		HttpSession session = req.getSession();
+		String tempName = (String) session.getAttribute("uName");
+		String tempPsword = (String) session.getAttribute("passWord");
+		System.out.println(tempName);
+		System.out.println(tempPsword);
+		if(tempName == null || tempPsword==null) {
+			resp.getWriter().print("no existing account");
+		}else {
+			resp.getWriter().print("user has logged in");
+		}
+	}
+	//**------------------------------**//
 	// 删除用户(测试)
 	public void delUser() {
 		boolean result = u.delete("小明");
