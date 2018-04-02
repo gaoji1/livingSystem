@@ -91,12 +91,12 @@ public class LogIn extends ActionSupport {
 		HttpSession session = req.getSession();
 		String tempName = (String) session.getAttribute("uName");
 		String tempPsword = (String) session.getAttribute("passWord");
-		System.out.println(tempName);
-		System.out.println(tempPsword);
+//		System.out.println(tempName);
+//		System.out.println(tempPsword);
 		if(tempName == null || tempPsword==null) {
 			resp.getWriter().print("no existing account");
 		}else {
-			resp.getWriter().print("user has logged in");
+			resp.getWriter().print(tempName);
 		}
 	}
 	//**------------------------------**//
