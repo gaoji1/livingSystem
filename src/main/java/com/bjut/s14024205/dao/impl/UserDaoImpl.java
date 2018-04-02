@@ -55,7 +55,7 @@ public class UserDaoImpl implements UserDao {
 //	添加用户信息
 	public boolean add(String uName,String passWord) {
 		User result = this.find(uName);
-		if(uName.equals(result.getuName())) {
+		if(result != null) {
 			return false;
 		}else {
 			User newUser = new User();
