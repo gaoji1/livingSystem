@@ -78,8 +78,11 @@
 	<bean id="LiveAction" class="com.bjut.s14024205.action.LiveAction" scope="prototype" >
 		<property name="l" ref="LiveDaoImpl" ></property>
 	</bean>
-	<bean id="PlaybackAction" class="com.bjut.s14024205.action.PlaybackAction" >
+	<bean id="PlaybackAction" class="com.bjut.s14024205.action.PlaybackAction" scope="prototype" >
 		<property name="p" ref="PlaybackDaoImpl" ></property>
+	</bean>
+	<bean id="SignUpAction" class="com.bjut.s14024205.action.SignUpAction" scope="prototype" >
+		<property name="u" ref="UserDaoImpl" ></property>
 	</bean>
 	
 	
