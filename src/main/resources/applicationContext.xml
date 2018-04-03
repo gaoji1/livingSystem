@@ -84,7 +84,10 @@
 	<bean id="SignUpAction" class="com.bjut.s14024205.action.SignUpAction" scope="prototype" >
 		<property name="u" ref="UserDaoImpl" ></property>
 	</bean>
-	<bean id="UserManage" class="com.bjut.s14024205.action.UserManage" scope="prototype" ></bean>
+	<bean id="UserManage" class="com.bjut.s14024205.action.UserManage" scope="prototype" >
+		<property name="u" ref="UserDaoImpl" ></property>
+		<property name="l" ref="LiveDaoImpl" ></property>
+	</bean>
 	
 	
 
