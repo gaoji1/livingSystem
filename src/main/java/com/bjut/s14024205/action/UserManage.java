@@ -20,6 +20,8 @@ public class UserManage extends ActionSupport {
 
 	// 用户名
 	private String uName;
+	private String streamName;
+	private String roomName;
 	private UserDaoImpl u;
 	private LiveDaoImpl l;
 
@@ -47,22 +49,67 @@ public class UserManage extends ActionSupport {
 		this.l = l;
 	}
 
+	public String getStreamName() {
+		return streamName;
+	}
+
+	public void setStreamName(String streamName) {
+		this.streamName = streamName;
+	}
+
+	public String getRoomName() {
+		return roomName;
+	}
+
+	public void setRoomName(String roomName) {
+		this.roomName = roomName;
+	}
+
 	// 获取指定用户的信息
 	/**
 	 * 通过用户名来查找数据库取得相关用户的信息，以及该用户直播间的信息
-	 * @throws IOException 
+	 * 
+	 * @throws IOException
 	 */
 	public void getUserInfo() throws IOException {
 		HttpServletRequest req = ServletActionContext.getRequest();
 		HttpSession session = req.getSession();
 		HttpServletResponse resp = ServletActionContext.getResponse();
-		//用户名直接从session里面取就行了
+		// 用户名直接从session里面取就行了
 		this.setuName((String) session.getAttribute("uName"));
 		Live temp_live = l.findByName(this.uName);
 		String output = JSON.toJSONString(temp_live);
 		System.out.println(this.uName);
 		System.out.println(output);
 		resp.getWriter().print(output);
+
+	}
+	
+	//更改用户信息
+	/**
+	 * 在此处更改用户的信息，根据从浏览器端接受的三个参数
+	 * 首先应该从session中取出当前用户名，并根据此用户名查出这名用户的信息
+	 * 随后判断uName,streamName,roomName三者中有没有哪个跟当前信息不同，不同才进行更改
+	 * 相同的属性不进行更改
+	 * roomName不同可以直接更改，补充查重
+	 * uName跟streamName都要先查重，确认无重复后可以更改，若有重复则此次修改无效，返回对应错误信息
+	 * @throws IOException 
+	 */
+	public void changeUserInfo() throws IOException {
+		HttpServletRequest req = ServletActionContext.getRequest();
+		HttpSession session = req.getSession();
+		HttpServletResponse resp = ServletActionContext.getResponse();
+		User user = u.find((String) session.getAttribute("uName"));
+		Live live = l.findByName((String) session.getAttribute("uName"));
+		ArrayList<Object> output = new ArrayList<Object>();
+		boolean result_user = u.changeUserName(user.getuName(), this.uName);
+		if(result_user == false) {
+			String user_out = "Duplicate username";
+			output.add(user_out);
+		}else {
+			String user_out = "success";
+			output.add(user_out);
+		}
 		
 	}
 }

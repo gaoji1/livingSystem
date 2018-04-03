@@ -82,6 +82,35 @@ public class UserDaoImpl implements UserDao {
 			return -1;
 		}
 	}
+//	更改用户名
+	/**
+	 * 变更旧用户名为新用户名
+	 * 如果新旧用户名一样，那么不用改变
+	 * 首先，旧用户名对应的用户必须存在
+	 * 其次，新的用户名必须现在没有人在使用
+	 * 然后才可以变更
+	 * @param oldUserName
+	 * @param newUserName
+	 * @return
+	 */
+	public boolean changeUserName(String oldUserName,String newUserName) {
+		if(oldUserName.equals(newUserName)) {
+			return true;
+		}
+		User result = this.find(oldUserName);
+		if(result == null) {
+			return false;
+		}else {
+			User temp_user = this.find(newUserName);
+			if(temp_user == null) {
+				result.setuName(newUserName);
+				hibernateTemplate.update(result);
+				return true;
+			}else {
+				return false;
+			}
+		}
+	}
 	
 	
 }
