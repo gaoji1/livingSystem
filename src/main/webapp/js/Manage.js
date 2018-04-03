@@ -16,8 +16,14 @@ var getUserInfo = function(){
 		username = username.substring(8);
 		var info = JSON.parse(data);
 		$("#uName").val(username);
-		$("#sName").val(info.streamName);
-		$("#rName").val(info.roomName);
+		if(info == null){
+			$("#sName").val("Not created");
+			$("#rName").val("Not created");
+		}else{
+			$("#sName").val(info.streamName);
+			$("#rName").val(info.roomName);
+		}
+		
 	})
 }
 $(getUserInfo);
