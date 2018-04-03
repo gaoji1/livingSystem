@@ -12,7 +12,7 @@ $(function() {
 			$("#lable2").text("Sign Up");
 			$("#lable2").attr("href","signUp.html");
 		} else {
-			$("#userinfo").text("Welcome!"+data+""+"");
+			$("#userinfo").text("Welcome!"+data);
 			$("#lable1").text("Manage");
 			$("#lable1").attr("href","Manage.html");
 			$("#lable2").text("Sign out");
