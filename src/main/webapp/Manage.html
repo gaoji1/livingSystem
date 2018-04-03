@@ -1,10 +1,196 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
+    <meta charset="utf-8">
+    <title>Home</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+
+    <!-- Bootstrap styles -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+   
+    <!-- Font-Awesome -->
+    <link rel="stylesheet" href="css/font-awesome/css/font-awesome.min.css">
+
+    <!-- Google Webfonts -->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600|PT+Serif:400,400italic' rel='stylesheet' type='text/css'>
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/style.css" id="theme-styles">
+
+    <!--[if lt IE 9]>      
+        <script src="js/vendor/google/html5-3.6-respond-1.1.0.min.js"></script>
+    <![endif]-->
+    <script language="JavaScript" src="./js/jquery-3.2.1.min.js"></script>
 </head>
 <body>
-manage.html
+    <header>
+        <div class="widewrapper masthead">
+            <div class="container">
+                <a href="index.html" id="logo">
+                    <img src="img/liveSystem.png" alt="clean Blog" width="150">
+                </a>
+
+                <div id="mobile-nav-toggle" class="pull-right">
+                    <a href="#" data-toggle="collapse" data-target=".clean-nav .navbar-collapse">
+                        <i class="fa fa-bars"></i>
+                    </a>
+                </div>
+
+                <nav class="pull-left clean-nav">
+                    <div class="collapse navbar-collapse">
+                        <ul class="nav nav-pills navbar-nav">
+     
+							<li>
+                                <a></a>
+                            </li>
+							<li>
+                                <a ></a>
+                            </li>
+                            <li>
+                                <a href="Live.html" >Live</a>
+                            </li>
+                            <li>
+                                <a href="Playback.html">Playback</a>
+                            </li>
+                            <li>
+                                <a href="About.html">About</a>
+                            </li>  
+                        </ul>
+                    </div>
+                </nav>
+				<nav class="pull-right clean-nav">
+                    <div class="collapse navbar-collapse">
+                        <ul class="nav nav-pills navbar-nav">
+                            <li>
+                                <a id="userinfo">userinfo</a>
+                            </li>
+                            <li>
+                                <a  id="lable1">lable1</a>
+                            </li>
+							<li>
+                                <a>|</a>
+                            </li>
+                            <li>
+                                <a  id="lable2">lable2</a>
+                            </li>  
+                        </ul>
+                    </div>
+                </nav>
+
+            </div>
+        </div>
+
+        <div class="widewrapper subheader">
+            <div class="container">
+                <div class="clean-breadcrumb">
+                    <a href="#">User Manage</a>
+                </div>
+
+                <div class="clean-searchbox">
+                    <form action="#" method="get" accept-charset="utf-8">
+                        <input class="searchfield" id="searchbox" type="text" placeholder="Search">
+                        <button class="searchbutton" type="submit">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="widewrapper main">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 blog-main">
+                    <div class="row">
+						<a>&nbsp&nbsp&nbsp&nbsp</a>
+						<label>Username:</label>
+						<a>&nbsp&nbsp</a>
+						<input type="text" placeholder="Text input">
+						<a>&nbsp&nbsp</a>
+						
+					</div>
+               	  	<div class="row">
+						<label>Streamname:</label>
+						<a>&nbsp&nbsp</a>
+						<input type="text" placeholder="Text input">
+					  <a>&nbsp&nbsp</a>                    
+					</div>
+				  	<div class="row">
+						<a>&nbsp&nbsp</a>
+						<label>Roomname:</label>
+						<a>&nbsp&nbsp</a>
+						<input type="text" placeholder="Text input">
+					  <a>&nbsp&nbsp</a>                    
+					</div>
+					<div class="row">
+						<a>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</a>
+						<a>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</a>
+						<a>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</a>
+						<input type="button" class="btn" value="save" >                  
+					</div>
+                </div>
+                <aside class="col-md-4 blog-aside">
+                    
+                    <div class="aside-widget">
+                        <header>
+                            <h3>More features</h3>
+                        </header>
+                        <div class="body">
+                            <ul class="clean-list">
+                                <li><a href="">change Password</a></li>
+                            </ul>
+                        </div>
+                    </div> 
+                </aside>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="widewrapper footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4 footer-widget">
+                        <h3> <i class="fa fa-user"></i>About</h3>
+
+                       <p>This is a living system for testing.The system is based on red5.The site will not be used for commercial purposes
+						</p>
+                       <p>This system can be used to watch live shows and playback shows.Users can choose to log in or not.</p>
+                    </div>
+
+                    <div class="col-md-4 footer-widget">
+                        <h3> <i class="fa fa-pencil"></i> Common Problem</h3>
+                        <ul class="clean-list">
+                            <li><a href="">can't enter the log in page</a></li>
+                            <li><a href="">Sign up failed</a></li>
+                            <li><a href="">can't post live show</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="col-md-4 footer-widget">
+                        <h3> <i class="fa fa-envelope"></i>Contact Me</h3>
+
+                        <p>If you have any questions during using the system,you can contact me by e-mail or mobile phone.</p>
+                        <p>e-mail:sample@gmail.com</p>
+						<p>phone:999999</p>
+                         <div class="footer-widget-icon">
+                            
+                        </div>
+                    </div>
+                   
+                </div>
+            </div>
+        </div>
+        <div class="widewrapper copyright">
+                Made By 14024205
+        </div>
+    </footer>
+    
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/modernizr.js"></script>
+	<script language="JavaScript" src="./js/topbar.js"></script>
 </body>
 </html>
