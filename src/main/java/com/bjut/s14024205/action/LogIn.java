@@ -101,6 +101,19 @@ public class LogIn extends ActionSupport {
 		}
 	}
 	//**------------------------------**//
+	//解除登陆状态
+	/**
+	 * 删除存放在session里的用户信息，系统恢复成未登录的状态
+	 */
+	public void signout() {
+		HttpServletRequest req = ServletActionContext.getRequest();
+		HttpSession session = req.getSession();
+		session.removeAttribute("uName");
+		session.removeAttribute("passWord");
+		System.out.println("解除登陆");
+		return;
+	}
+	//*---------------------------------------*//
 	// 删除用户(测试)
 	public void delUser() {
 		boolean result = u.delete("小明");

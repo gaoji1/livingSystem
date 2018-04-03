@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script language="JavaScript" src="./js/jquery-3.2.1.min.js"></script>
+</head>
+<body>
+signout
+<script type="text/javascript">
+$.get("/livingSystem/LogIn_signout",function(data){
+	$(location).attr('href', '/livingSystem/index.html');
+})
+</script>
+</body>
+</html>
