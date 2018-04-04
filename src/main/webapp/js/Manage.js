@@ -38,13 +38,17 @@ function changeUserInfo() {
 	var streamname = $("#sName").val();
 	var roomname = $("#rName").val();
 	url = "/livingSystem/UserManage_changeUserInfo";
+	$(".resultTag").remove();
 	$.post(url, {
 		uName : username,
 		streamName : streamname,
 		roomName : roomname
 	}, function(data) {
 		var result = JSON.parse(data);
-		alert(result[0] +" "+ result[1]);
+		var stream_out = $('<a class="resultTag" ></a>').text(result[0]);
+		var room_out = $('<a class="resultTag" ></a>').text(result[1]);
+		$("#sName").after(stream_out);
+		$("#rName").after(room_out);
 		getUserInfo();
 	})
 
