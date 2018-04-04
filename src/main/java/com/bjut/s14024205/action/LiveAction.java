@@ -52,19 +52,6 @@ public class LiveAction extends ActionSupport {
 		}
 	}
 
-	// 更改直播信息(测试)
-	public void update() {
-		String uName = "小明";
-		String oldStream = "lv_12";
-		String newStream = "lv_5";
-		int result = l.update(uName, oldStream, newStream);
-		if (result == 1) {
-			System.out.println("修改成功");
-		}else if(result == -1) {
-			System.out.println("没有找到要修改的信息");
-		}else {
-			System.out.println("您要修改的流名称已经被占用");
-		}
-	}
+	
 
 }
