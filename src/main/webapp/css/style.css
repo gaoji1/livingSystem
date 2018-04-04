@@ -768,6 +768,9 @@ Blog main page paging
 .paging span {
   margin-left: 10px;
 }
+.li-span{
+	float: right;
+}
 
 .paging .newer i {
   margin-right: 5px;
