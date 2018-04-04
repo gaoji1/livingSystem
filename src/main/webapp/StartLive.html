@@ -84,7 +84,7 @@
         <div class="widewrapper subheader">
             <div class="container">
                 <div class="clean-breadcrumb">
-                    <a href="#">User Manage</a>
+                    <a>Start Live</a>
                 </div>
 
                 <div class="clean-searchbox">
@@ -104,31 +104,20 @@
             <div class="row">
                 <div class="col-md-8 blog-main">
                     <div class="row">
-						<a>&nbsp&nbsp&nbsp&nbsp</a>
-						<label>Username:</label>
-						<a>&nbsp&nbsp</a>
-						<input id="uName" type="text" placeholder="Text input" disabled>
-						<a>&nbsp&nbsp</a>
+						<h3>How to start your live：</h3>
+						<p>To start live,you must install a software to push your live stream to the server.
+							That could be <span class="label label-default" >Adobe Flash Media Live Encoder</span>or
+							<span class="label label-default" >OBS Studio</span>or other software of the same type.After installing pushing software,follow the steps below.</p>
+						<p>1.Make sure your pushing software can capture your video,if you need to capture video from your camera,don't forget to open it from your operation system.</p>
+						<p>2.Set up your software.Fill <span class="label label-default" >rtmp://localhost/myApp</span>
+							in <span class="label label-default" >URL</span> option.Fill your streamname in <span class="label label-default" >StreamName</span> option.If you forget your streamname,you can find it in <a href="Manage.html" class="label label-default" >user manage</a> page.</p>
+						<p>3.Click <span class="label label-default" >Push Button</span> of your software and click the
+						<span class="label label-default" >Start</span> button below.If prompt <span class="label label-default" >live Start</span>, then congratulations,you have started up your live broadcast!</p> 
 						
 					</div>
-               	  	<div class="row">
-						<label>Streamname:</label>
-						<a>&nbsp&nbsp</a>
-						<input id="sName" type="text" placeholder="Text input">
-					  <a>&nbsp&nbsp</a>                    
-					</div>
-				  	<div class="row">
-						<a>&nbsp&nbsp</a>
-						<label>Roomname:</label>
-						<a>&nbsp&nbsp</a>
-						<input id="rName" type="text" placeholder="Text input">
-					  <a>&nbsp&nbsp</a>                    
-					</div>
-					<div class="row">
-						<a>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</a>
-						<a>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</a>
-						<a>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</a>
-						<input id="save" type="button" class="btn" value="save" >                  
+               	  	
+					<div class="row" align="center" >
+						<button id="start" type="button" class="btn btn-primary btn-lg">Start</button>                  
 					</div>
                 </div>
                 <aside class="col-md-4 blog-aside">
@@ -192,7 +181,6 @@
     <script src="js/bootstrap.min.js"></script>
     <script src="js/modernizr.js"></script>
 	<script language="JavaScript" src="./js/topbar.js"></script>
-	<script language="JavaScript" src="./js/Manage.js"></script>
-	
+	<script language="JavaScript" src="./js/StartLive.js"></script>
 </body>
 </html>
