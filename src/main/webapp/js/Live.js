@@ -14,11 +14,15 @@ function getLiveInfo(){
 		if(data != null){
 			var rooms = JSON.parse(data);
 			for(var e in rooms){
-				temp_room = $('<li class="list-group-item"><a class="li-span">'+rooms[e].uName+'</a>'+'<a>'+rooms[e].roomName+'</a>'+'</li>'); 
 				temp_li = $('<li class="list-group-item"></li>');
 				temp_span = $('<span class="li-span"></span>');
+				temp_span.text(rooms[e].uName);
 				temp_a = $('<a></a>');
-				$("#livelist").append(temp_room);
+				temp_a.attr("href","index.html");
+				temp_a.text(rooms[e].roomName);
+				temp_li.append(temp_span);
+				temp_li.append(temp_a);
+				$("#livelist").append(temp_li);
 			}
 			
 			
