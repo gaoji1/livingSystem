@@ -1,6 +1,7 @@
 package com.bjut.s14024205.action;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -8,6 +9,7 @@ import javax.servlet.http.HttpSession;
 
 import org.apache.struts2.ServletActionContext;
 
+import com.alibaba.fastjson.JSON;
 import com.bjut.s14024205.dao.impl.LiveDaoImpl;
 import com.bjut.s14024205.entity.Live;
 import com.opensymphony.xwork2.ActionSupport;
@@ -55,6 +57,18 @@ public class LiveAction extends ActionSupport {
 			resp.getWriter().println("success");
 		}
 		return;
+	}
+	
+	//查询直播间信息
+	/**
+	 * 查询正在直播的直播间并发给前端
+	 * @throws IOException 
+	 */
+	public void getLiveInfo() throws IOException {
+		HttpServletResponse resp = ServletActionContext.getResponse();
+		resp.setCharacterEncoding("utf-8");
+		List<Live> output = l.listLiveRoom();
+		resp.getWriter().print(JSON.toJSONString(output));
 	}
 
 	// 查询直播信息(测试)

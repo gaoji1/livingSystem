@@ -82,6 +82,17 @@ public class LiveDaoImpl implements LiveDao {
 			}
 		}
 	}
+	//查询所有在播直播间
+	public List<Live> listLiveRoom(){
+		DetachedCriteria criteria = DetachedCriteria.forClass(Live.class);
+		criteria.add(Restrictions.eq("isOpen", true));
+		List<Live> output = (List<Live>) hibernateTemplate.findByCriteria(criteria);
+		if(output.isEmpty()) {
+			return null;
+		}else {
+			return output;
+		}
+	}
 
 	// 更改直播信息
 	/**
