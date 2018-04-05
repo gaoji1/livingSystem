@@ -24,6 +24,20 @@ public class PlaybackDaoImpl implements PlayBackDao {
 		this.hibernateTemplete = hibernateTemplete;
 	}
 	
+//	查找所有回放信息
+	/**
+	 * 查找所有直播信息a
+	 */
+	public List<PlayBack> findAll() {
+		DetachedCriteria criteria = DetachedCriteria.forClass(PlayBack.class);
+		List<PlayBack> output = (List<PlayBack>) hibernateTemplete.findByCriteria(criteria);
+		if(output.isEmpty()) {
+			return null;
+		}else {
+			return output;
+		}
+	}
+	
 // 根据用户名查找
 	public List<PlayBack> findByName(String uName){
 		DetachedCriteria PlaybackCriteria =DetachedCriteria.forClass(PlayBack.class);
