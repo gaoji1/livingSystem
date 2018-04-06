@@ -18,7 +18,7 @@ function getLiveInfo(){
 				temp_span = $('<span class="li-span"></span>');
 				temp_span.text(rooms[e].uName);
 				temp_a = $('<a></a>');
-				temp_a.attr("href","index.html");
+				temp_a.attr("href","/livingSystem/LivePlay.html#123");
 				temp_a.text(rooms[e].roomName);
 				temp_li.append(temp_span);
 				temp_li.append(temp_a);
@@ -29,7 +29,4 @@ function getLiveInfo(){
 		}
 	})
 }
-
-
-
 $(getLiveInfo);
