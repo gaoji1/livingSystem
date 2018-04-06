@@ -23,11 +23,6 @@
     <![endif]-->
 <script language="JavaScript" src="./js/jquery-3.2.1.min.js"></script>
 <script type="text/javascript" src="./ckplayer/ckplayer.js"></script>
-<style type="text/css">
-	#hide_1{
-		display: none
-	}
-</style>
 </head>
 <body>
 <header>
@@ -59,7 +54,7 @@
   </div>
   <div class="widewrapper subheader">
     <div class="container">
-      <div class="clean-breadcrumb"> <a href="#">Live</a> </div>
+      <div class="clean-breadcrumb"> <a href="#">PlayBack</a> </div>
       <div class="clean-searchbox">
         <form action="#" method="get" accept-charset="utf-8">
           <input class="searchfield" id="searchbox" type="text" placeholder="Search">
@@ -72,18 +67,10 @@
 <div class="widewrapper main">
   <div class="container">
     <div class="row">
-      <div class="col-md-8 blog-main">
-		<!--面板 : 选择直播间后隐藏该面板-->
-        <div class="panel panel-default" id="hide_1" > 
-          <!-- Default panel contents -->
-          <div class="panel-heading">Current Live Rooms</div>
-          <!-- List group -->
-          <ul id="livelist" class="list-group">
-            
-          </ul>
-        </div>
-        <!-- 播放器布局 -->
-		<div id="video" style="width:700px;height:400px;"></div>  
+      <div class="col-md-8 blog-main"> 
+        <!--面板 ：回放播放页面没有-->
+		<!--播放器布局-->
+		<div id="video" style="width:700px;height:400px;"></div>   
       </div>
       <aside class="col-md-4 blog-aside">
         <div class="aside-widget">
@@ -133,9 +120,6 @@
 <script src="js/bootstrap.min.js"></script> 
 <script src="js/modernizr.js"></script> 
 <script language="JavaScript" src="./js/topbar.js"></script>
-<script language="JavaScript" src="./js/LivePlay.js"></script>
-<script type="text/javascript">
-
-</script>
+<script language="JavaScript" src="./js/PlayBackPlay.js"></script>
 </body>
 </html>
