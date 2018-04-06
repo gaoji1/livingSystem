@@ -18,8 +18,8 @@ function getLiveInfo(){
 				temp_span = $('<span class="li-span"></span>');
 				temp_span.text(rooms[e].uName);
 				temp_a = $('<a></a>');
-				temp_a.attr("href","/livingSystem/LivePlay.html#123");
 				temp_a.text(rooms[e].roomName);
+				temp_a.attr("href","/livingSystem/LivePlay.html#"+rooms[e].streamName);
 				temp_li.append(temp_span);
 				temp_li.append(temp_a);
 				$("#livelist").append(temp_li);

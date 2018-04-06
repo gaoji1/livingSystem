@@ -22,7 +22,7 @@ function ckplayerConfig() {
 			loadNext: 0, //多段视频预加载的段数，设置成0则全部加载
 			definition: true, //是否使用清晰度组件
 			smartRemove: true, //是否使用智能清理，使用该功能则在多段时当前播放段之前的段都会被清除出内存，减少对内存的使用
-			bufferTime: 200, //缓存区的长度，单位：毫秒,不要小于10
+			bufferTime: 0, //缓存区的长度，单位：毫秒,不要小于10
 			click: true, //是否支持屏幕单击暂停
 			doubleClick: true, //是否支持屏幕双击全屏
 			doubleClickInterval: 200, //判断双击的标准，即二次单击间隔的时间差之内判断为是双击，单位：毫秒
@@ -50,7 +50,7 @@ function ckplayerConfig() {
 				start: 'start' //回看请求参数
 			},
 			errorNum: 3, //错误重连次数
-			playCorrect: false, //是否需要错误修正，这是针对rtmp的
+			playCorrect: true, //是否需要错误修正，这是针对rtmp的
 			timeCorrect: true, //http视频播放时间错误纠正，有些因为视频格式的问题导致视频没有实际播放结束视频文件就返回了stop命令
 			m3u8Definition: { //m3u8自动清晰度时按关键字来进行判断
 				//tags:['200k','110k','400k','600k','1000k']
