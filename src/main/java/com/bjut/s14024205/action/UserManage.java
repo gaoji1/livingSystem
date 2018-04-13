@@ -18,10 +18,14 @@ import com.opensymphony.xwork2.ActionSupport;
 
 public class UserManage extends ActionSupport {
 
-	// 用户名
+//	接收修改密码信息
+	private String oldPsword;
+	private String newPsword;
+	// 接收修改用户信息
 	private String uName;
 	private String streamName;
 	private String roomName;
+//	外部注入dao
 	private UserDaoImpl u;
 	private LiveDaoImpl l;
 
@@ -63,6 +67,23 @@ public class UserManage extends ActionSupport {
 
 	public void setRoomName(String roomName) {
 		this.roomName = roomName;
+	}
+	
+
+	public String getOldPsword() {
+		return oldPsword;
+	}
+
+	public void setOldPsword(String oldPsword) {
+		this.oldPsword = oldPsword;
+	}
+
+	public String getNewPsword() {
+		return newPsword;
+	}
+
+	public void setNewPsword(String newPsword) {
+		this.newPsword = newPsword;
 	}
 
 	// 获取指定用户的信息
@@ -124,5 +145,26 @@ public class UserManage extends ActionSupport {
 		return;
 		
 		
+	}
+	
+	//修改密码
+	/**
+	 * 接收前端传来的原始密码，新密码，修改原始密码为新密码
+	 * 用户名从当前session中取得
+	 * 首先验证原始密码输入是否有误，如果有误则返回错误信息让用户修改
+	 * 如果确认原始密码没有错误，那么修改密码，返回成功信息
+	 * @throws IOException 
+	 */
+	public void changePsword() throws IOException {
+		HttpServletRequest req = ServletActionContext.getRequest();
+		HttpSession session = req.getSession();
+		HttpServletResponse resp = ServletActionContext.getResponse();
+		User user = u.find((String) session.getAttribute("uName"));
+		if(user.getPassWord().equals(this.oldPsword)) {
+			u.update(user.getuName(), this.oldPsword, this.newPsword);
+			resp.getWriter().print("success");
+		}else {
+			resp.getWriter().print("Old password wrong");
+		}
 	}
 }

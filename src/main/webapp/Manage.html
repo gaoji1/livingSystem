@@ -22,6 +22,14 @@
         <script src="js/vendor/google/html5-3.6-respond-1.1.0.min.js"></script>
     <![endif]-->
     <script language="JavaScript" src="./js/jquery-3.2.1.min.js"></script>
+	<style type="text/css">
+		#changePsword{
+			display: none;
+		}
+		#changeInfo{
+			
+		}
+	</style>
 </head>
 <body>
     <header>
@@ -102,7 +110,8 @@
     <div class="widewrapper main">
         <div class="container">
             <div class="row">
-                <div class="col-md-8 blog-main">
+<!--				修改个人信息-->
+                <div id="changeInfo" class="col-md-8 blog-main">
                     <div class="row">
 						<a>&nbsp&nbsp&nbsp&nbsp</a>
 						<label>Username:</label>
@@ -130,7 +139,37 @@
 						<a>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</a>
 						<input id="save" type="button" class="btn" value="save" >                  
 					</div>
+					
                 </div>
+<!--				修改密码-->
+				<div id="changePsword" class="col-md-8 blog-main">
+					<div class="row">
+						<a>&nbsp</a>
+						<label>old Password:</label>
+						<a>&nbsp&nbsp</a>
+						<input id="oldPsword" type="password" placeholder="Text input">
+					  <a>&nbsp&nbsp</a>                  
+					</div>
+					<div class="row">
+						<label>new Password:</label>
+						<a>&nbsp&nbsp</a>
+						<input id="newPsword" type="password" placeholder="Text input">
+					  <a>&nbsp&nbsp</a>                  
+					</div>
+					<div class="row">
+						<a>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</a>
+						<label>new again:</label>
+						<a>&nbsp&nbsp</a>
+						<input id="newAgain" type="password" placeholder="Text input">
+					  <a>&nbsp&nbsp</a>                  
+					</div>
+					<div class="row">
+						<a>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</a>
+						<a>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</a>
+						<a>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</a>
+						<input id="change" type="button" class="btn" value="change" >                  
+					</div>
+				</div>
                 <aside class="col-md-4 blog-aside">
                     
                     <div class="aside-widget">
@@ -139,7 +178,7 @@
                         </header>
                         <div class="body">
                             <ul class="clean-list">
-                                <li><a href="">change Password</a></li>
+                                <li><a id="convert" href="#">change Password</a></li>
                             </ul>
                         </div>
                     </div> 
